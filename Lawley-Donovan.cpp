@@ -49,7 +49,7 @@ int main(int argc, char* argv[]) {
 			if(mode == "lawley") {
 				prime = ( d(6)==1 || d(6)==4 );
 			} else if(mode == "banner") { 
-				prime = ( d((int)ceil(log(i+1)))==1 );
+				prime = ( d(std::max((int)ceil(log(i+1)), 4))==1 );
 			} else {
 				prime = ( d(6) == 1 );
 			}
