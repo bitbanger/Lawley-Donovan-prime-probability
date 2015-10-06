@@ -12,6 +12,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include <math.h>
 
 int d(int n) {
 	return rand()%n+1;
@@ -30,7 +31,7 @@ int main(int argc, char* argv[]) {
 			N = atoi(argv[1]);
 			break;
 		default:
-			printf("USAGE: %s <num> [complexity] [lawley OR donovan]\n", argv[0]);
+			printf("USAGE: %s <num> [complexity] [lawley OR donovan OR banner]\n", argv[0]);
 			return 1;
 	}
 
@@ -47,6 +48,8 @@ int main(int argc, char* argv[]) {
 		if(prime) {
 			if(mode == "lawley") {
 				prime = ( d(6)==1 || d(6)==4 );
+			} else if(mode == "banner") { 
+				prime = ( d(std::max((int)ceil(log(i+1)), 4))==1 );
 			} else {
 				prime = ( d(6) == 1 );
 			}
